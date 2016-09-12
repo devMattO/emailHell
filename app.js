@@ -6,66 +6,35 @@ let findDuplicateEmails = bugInfo => {
   let emailsArr = bugInfo.emails;
   let emails = " ";
   let duplicatedAddresses = [];
+  let report = [];
   for (var i = 0; i < emailsArr.length; i++) {
     emails = emailsArr[i].email;
     if(duplicatedAddresses.indexOf(emails) < 0){
       duplicatedAddresses.push(emails);
     }
   }
+
   return duplicatedAddresses;
 };
 
 let duplicatedAddresses = findDuplicateEmails(bugInfo);
-console.log(duplicatedAddresses);
 
-console.log(findDuplicateEmails(bugInfo));
+let findNumOfDupes = (bugInfo, dupAddys) => {
+  let emailsArr = bugInfo.emails;
+  let arr = [];
+  for (var i = 0; i < emailsArr.length; i++) {
+    // console.log(emailsArr[i].email);
+    console.log({
+          dupeAddys: dupAddys.forEach(el => {
+            console.log(el, '<el');
 
+          }),
+          name: emailsArr[i].email
 
+        });
 
+  }
 
+};
 
-
-
-
-
-
-
-//the number of times an e-mail was sent to each address.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var circle = require('./email.json');
-
-// var emailObj = circle.emails;
-
-// function uniqueEmails(obj){
-//   var emailAddresses;
-//   var dateSent;
-//   var newObj = {};
-//   for (var i = 0; i < obj.length; i++) {
-//     if(newObj.hasOwnProperty(obj[i].email) === false)
-//     newObj[obj[i].email] = 0;
-//     }
-//   newObj[obj[i].email]++;
-//   }
-//   return newObj;
-// }
-// var sortedEmails = uniqueEmails(emailObj);
-// console.log(sortedEmails);
+findNumOfDupes(bugInfo, duplicatedAddresses);
